@@ -5,16 +5,15 @@ import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } fro
 
 import { Link, useNavigate } from 'react-router-dom';
 
-import { ToastContainer, toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import { async } from '@firebase/util';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const Signup = () => {
   // create user with email and pass
-  const [user1] = useAuthState(auth);
+  
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   // Update profile name 
@@ -24,23 +23,23 @@ const Signup = () => {
   const onSubmit = async ({ name, email, password },e) => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
-    e.target.reset();
-     
+  
   };
-  // navigate
   const navigate = useNavigate();
-  if (user1 ||user ) {
-    navigate('/login');
-  }
+
   
 //  handel loading
-
+  if (updating || loading) {
+     return <LoadingSpinner></LoadingSpinner>
+   }
   // handel error message
   let errorMessage;
   if (error || error2) {
     errorMessage = <p className="text-red-700 ml-5 mb-4">{error.message}</p>;
   }
-  // handel loading
+  if (user) {
+    navigate('/login');
+  }
 
   return (
     <div className="mt-40 container grid grid-cols-1 md:grid-cols-2 mb-[138px]">
@@ -99,7 +98,7 @@ const Signup = () => {
             />
           </div>
         </form>
-        <ToastContainer></ToastContainer>
+       
       </div>
     </div>
   );
