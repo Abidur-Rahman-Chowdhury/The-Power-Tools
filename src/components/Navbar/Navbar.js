@@ -1,7 +1,11 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { NavLink } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navbar = ({ children }) => {
+  const [user] = useAuthState(auth);
   const menuItems = (
     <>
       <li>
@@ -19,16 +23,37 @@ const Navbar = ({ children }) => {
           Portfolio
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/login" className="rounded-lg">
-          Login
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/signup" className="rounded-lg">
-          Sign Up
-        </NavLink>
-      </li>
+      {!user && (
+        <>
+          <li>
+            <NavLink to="/login" className="rounded-lg">
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/signup" className="rounded-lg">
+              Sign Up
+            </NavLink>
+          </li>
+        </>
+      )}
+      {user && (
+        <>
+          <li>
+            <NavLink to="/dashboard" className="rounded-lg">
+              Dashboard
+            </NavLink>
+          </li>
+
+          <span className="mt-3 text-blue-500">{user?.displayName}</span>
+          <span
+            className=" btn  btn-outline  hover:bg-blue-600 hover:text-white font-bold"
+            onClick={() => signOut(auth)}
+          >
+            Sign Out
+          </span>
+        </>
+      )}
     </>
   );
 
@@ -60,24 +85,9 @@ const Navbar = ({ children }) => {
 
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal gap-x-2">
-              {
-                menuItems
-              }
+              {menuItems}
 
-              <li className="dropdown dropdown-hover dropdown-end">
-                <ul
-                  tabIndex="0"
-                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-                >
-                  <li>
-                    <a>Item 1</a>
-                  </li>
-                  <li>
-                    <a>Item 2</a>
-                  </li>
-                </ul>
-              </li>
-             
+              
             </ul>
           </div>
         </div>
@@ -87,10 +97,7 @@ const Navbar = ({ children }) => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
-          {
-            menuItems
-          }
-          
+          {menuItems}
         </ul>
       </div>
     </div>

@@ -1,0 +1,9 @@
+.signup-form {
+    width: 100%;
+}
+.signup-form input:not([type="submit"]) {
+    max-width: 400px;
+    border-bottom: 2px solid gray;
+    border-radius: 8px;
+    
+}
