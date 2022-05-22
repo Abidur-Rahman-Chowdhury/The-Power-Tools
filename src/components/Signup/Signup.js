@@ -98,7 +98,7 @@ const Signup = () => {
               value="Signup" 
             />
           </div>
-          <div class="divider">OR</div>
+          <div className="divider">OR</div>
         <Social></Social>
         </form>
        

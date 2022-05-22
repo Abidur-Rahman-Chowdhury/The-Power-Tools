@@ -11,6 +11,9 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import Social from '../Social/Social';
+import axios from 'axios';
+import { baseUrl } from '../../api/constant';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
   const emailRef = useRef('');
@@ -23,19 +26,22 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
-  if (user) {
-    navigate(from, { replace: true });
-  }
+ 
 
   let handelLogin = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(
+      `${baseUrl}/login`,
+      { email }
+    );
+    localStorage.setItem('accessToken', data.accessToken);
 
     e.target.reset();
   };
-
+  const [token] = useToken(user);
   // handel reset password
   const handelPasswordReset = async () => {
     const email = emailRef.current.value;
@@ -46,6 +52,9 @@ const Login = () => {
       toast('Please enter your email address');
     }
   };
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   // handel error message
   let errorMessage;
@@ -107,7 +116,7 @@ const Login = () => {
               type="submit"
               value="Login"
             />
-            <div class="divider">OR</div>
+            <div className="divider">OR</div>
             <Social></Social>
           </div>
 

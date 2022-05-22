@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+
 import google from '../../images/logo/google logo.png';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import useToken from '../../hooks/useToken';
 
 const Social = (props) => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -11,10 +13,12 @@ const Social = (props) => {
   const handelSocialLogin = () => {
     signInWithGoogle();
   };
+  const [token] = useToken(user);
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
-  if (user) {
+
+  if (token) {
     navigate(from, { replace: true });
   }
 
