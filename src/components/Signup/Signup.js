@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import { async } from '@firebase/util';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import Social from '../Social/Social';
 
 const Signup = () => {
   // create user with email and pass
@@ -97,6 +98,8 @@ const Signup = () => {
               value="Signup" 
             />
           </div>
+          <div class="divider">OR</div>
+        <Social></Social>
         </form>
        
       </div>

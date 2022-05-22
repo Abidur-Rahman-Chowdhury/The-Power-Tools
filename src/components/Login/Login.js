@@ -10,6 +10,7 @@ import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import Social from '../Social/Social';
 
 const Login = () => {
   const emailRef = useRef('');
@@ -24,16 +25,14 @@ const Login = () => {
   let from = location.state?.from?.pathname || '/';
   if (user) {
     navigate(from, { replace: true });
-    }
-    
+  }
 
   let handelLogin = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
-    
-    
+
     e.target.reset();
   };
 
@@ -63,7 +62,7 @@ const Login = () => {
       <div className="mt-20">
         <h2 className="text-4xl font-bold text-[#6C63FF] text-center">Login</h2>
 
-        <form 
+        <form
           className="mt-10 signup-form  p-4 rounded-md shadow-lg "
           onSubmit={handelLogin}
         >
@@ -108,8 +107,10 @@ const Login = () => {
               type="submit"
               value="Login"
             />
+            <div class="divider">OR</div>
+            <Social></Social>
           </div>
-          
+
           <ToastContainer></ToastContainer>
         </form>
       </div>
