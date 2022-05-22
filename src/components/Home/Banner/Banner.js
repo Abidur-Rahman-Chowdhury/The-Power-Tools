@@ -38,13 +38,13 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      <div id="slide4" class="carousel-item relative w-full">
-        <img src={img1} alt="" class="w-full object-fill" />
-        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide3" class="btn btn-circle">
+      <div id="slide4" className="carousel-item relative w-full">
+        <img src={img1} alt="" className="w-full object-fill" />
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide3" className="btn btn-circle">
             ❮
           </a>
-          <a href="#slide1" class="btn btn-circle">
+          <a href="#slide1" className="btn btn-circle">
             ❯
           </a>
         </div>
