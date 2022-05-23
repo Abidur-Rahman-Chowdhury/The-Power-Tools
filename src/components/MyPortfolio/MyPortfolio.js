@@ -17,8 +17,8 @@ const MyPortfolio = () => {
           <b>Email: </b>abid43iiuc@gmail.com
         </p>
         <h4 className="text-center text-2xl font-bold mb-3">Education</h4>
-        <div class="overflow-x-auto mb-5">
-          <table class="table w-full">
+        <div className="overflow-x-auto mb-5">
+          <table className="table w-full">
             <thead>
               <tr>
                 <th>Institute</th>
@@ -40,8 +40,8 @@ const MyPortfolio = () => {
           </table>
         </div>
         <h4 className="text-center text-2xl font-bold mb-3">Skills</h4>
-        <div class="overflow-x-auto mb-10">
-          <table class="table w-full">
+        <div className="overflow-x-auto mb-10">
+          <table className="table w-full">
             <thead>
               <tr>
                 <th>Expert</th>

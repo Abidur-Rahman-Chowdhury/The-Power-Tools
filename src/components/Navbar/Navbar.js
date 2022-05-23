@@ -25,6 +25,7 @@ const Navbar = ({ children }) => {
       </li>
       {!user && (
         <>
+         
           <li>
             <NavLink to="/login" className="rounded-lg">
               Login
