@@ -1,0 +1,9 @@
+.dashboard-menu {
+    flex-shrink: 0;
+    flex-grow: 4;
+}
+
+.dashboard-content {
+    flex-shrink: 0;
+    flex-grow: 8;
+}

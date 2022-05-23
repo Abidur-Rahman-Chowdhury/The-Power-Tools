@@ -18,9 +18,13 @@ const Social = (props) => {
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+     
+    }
+  },[token,navigate,from])
 
   return (
     <div className="mt-2">

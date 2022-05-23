@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Signup.css';
 import signup from '../../images/login-signup/signup.png';
 import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 import { useForm } from 'react-hook-form';
@@ -11,6 +11,7 @@ import auth from '../../firebase.init';
 import { async } from '@firebase/util';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import Social from '../Social/Social';
+import useToken from '../../hooks/useToken';
 
 const Signup = () => {
   // create user with email and pass
@@ -19,6 +20,7 @@ const Signup = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   // Update profile name 
   const [updateProfile, updating, error2] = useUpdateProfile(auth);
+  const [user2] = useAuthState(auth);
   
   const { register,  formState: { errors }, handleSubmit } = useForm();
   const onSubmit = async ({ name, email, password },e) => {
@@ -26,8 +28,17 @@ const Signup = () => {
     await updateProfile({ displayName: name });
   
   };
-  const navigate = useNavigate();
 
+  const [token] = useToken(user||user2);
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // let from = location.state?.from?.pathname || '/';
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate(from, { replace: true });
+     
+  //   }
+  // },[token,navigate,from,updating])
   
 //  handel loading
   if (updating || loading) {
@@ -38,9 +49,7 @@ const Signup = () => {
   if (error || error2) {
     errorMessage = <p className="text-red-700 ml-5 mb-4">{error.message}</p>;
   }
-  if (user) {
-    navigate('/login');
-  }
+
 
   return (
     <div className="mt-40 container grid grid-cols-1 md:grid-cols-2 mb-[138px]">
