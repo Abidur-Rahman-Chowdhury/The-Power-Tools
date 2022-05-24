@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Hand Mixer",
+        "img": "https://i.ibb.co/XVK5kNB/Hand-Mixers.jpg",
+        "des": "This is an powerful hand mixer tools. The quality of this tools is very good",
+        "minimum": 5,
+        "available": 15,
+        "price" : 250
+    },
+    {
+        "name": "High Pressure Washers",
+        "img": "https://i.ibb.co/wYdytwd/High-Pressure-Washers.jpg",
+        "des": "This is a high pressure washer tools. This is very powerful tools to wash cars and other uses. Quality of this tools is very good.",
+        "minimum": 10,
+        "available": 30,
+        "price" : 350
+    },
+    {
+        "name": "Gasoline Sprayers",
+        "img": "https://i.ibb.co/q00HSph/Gasoline-Sprayers.jpg",
+        "des": "This is a sprayers tools to spray pesticides in your land. This is very useful tool.",
+        "minimum": 15,
+        "available": 40,
+        "price" : 150
+    },
+    {
+        "name": "Gasoline Chainsaws",
+        "img": "https://i.ibb.co/DM7dbbh/Gasoline-Chainsaws.jpg",
+        "des": "This is a very powerful tools to cut down a big tree. This very handy tool when to cut big trees.",
+        "minimum": 10,
+        "available": 60,
+        "price" : 450
+    },
+    {
+        "name": "Banch Grinder",
+        "img": "https://i.ibb.co/yQWtPR4/Banch-Grinder.jpg",
+        "des": "This is also a very powerful tools to use. Quality of this tools is very great.",
+        "minimum": 5,
+        "available": 100,
+        "price" : 230
+    },
+    {
+        "name": "Grinder",
+        "img": "https://i.ibb.co/JzFrF7f/Grinder.jpg",
+        "des": "This tools is very useful.The built quality of this tools is too good.",
+        "minimum": 5,
+        "available": 80,
+        "price" : 210
+    }
+]

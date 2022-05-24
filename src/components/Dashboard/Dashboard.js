@@ -15,34 +15,34 @@ const Dashboard = () => {
                       {
                           !admin && <>
                           <li>
-              <NavLink to="/dashboard/myOrders">My Orders</NavLink>
+              <Link  className='hover:bg-[#570DF8] hover:text-white' to="/dashboard/myOrders">My Orders</Link>
             </li>
             <li>
-              <NavLink to="/dashboard/addReview">Add Review</NavLink>
+              <Link  className='hover:bg-[#570DF8] hover:text-white' to="/dashboard/addReview">Add Review</Link>
             </li>
                           
                           </>
             }
             <li>
-              <NavLink to="/dashboard">My Profile</NavLink>
+              <Link  className='hover:bg-[#570DF8] hover:text-white' to="/dashboard">My Profile</Link>
             </li>
             {admin && (
               <>
                 <li>
-                  <NavLink to="/dashboard/addProduct">Add Product</NavLink>
+                  <Link  className='hover:bg-[#570DF8] hover:text-white'  to="/dashboard/addProduct">Add Product</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/makeAdmin">Make Admin</Link>
+                  <Link  className='hover:bg-[#570DF8] hover:text-white' to="/dashboard/makeAdmin">Make Admin</Link>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/manageAllOrders">
+                  <Link  className='hover:bg-[#570DF8] hover:text-white' to="/dashboard/manageAllOrders">
                     Manage All Orders
-                  </NavLink>
+                  </Link>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/manageProducts">
+                  <Link  className='hover:bg-[#570DF8] hover:text-white' to="/dashboard/manageProducts">
                     Manage Product
-                  </NavLink>
+                  </Link>
                 </li>
               </>
             )}

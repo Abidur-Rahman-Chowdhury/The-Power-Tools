@@ -1,13 +1,14 @@
 import { signOut } from 'firebase/auth';
 import React  from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Navbar = ({ children }) => {
   const [user] = useAuthState(auth);
   const [createUserWithEmailAndPassword, user2, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const navigate = useNavigate();
   const menuItems = (
     <>
       <li>
@@ -51,7 +52,11 @@ const Navbar = ({ children }) => {
           <span className="mt-3 text-blue-500">{(user ||user2) ? user.displayName : ''}</span>
           <span
             className=" btn  btn-outline  hover:bg-blue-600 hover:text-white font-bold"
-            onClick={() => signOut(auth)}
+            onClick={() => {
+              signOut(auth)
+              localStorage.removeItem('accessToken')
+              navigate('/login');
+            }}
           >
             Sign Out
           </span>

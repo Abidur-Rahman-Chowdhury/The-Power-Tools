@@ -2,7 +2,8 @@ import React from 'react';
 import About from '../About/About';
 import Banner from '../Banner/Banner';
 import Contact from '../Contact/Contact';
-import ShowProduct from '../ShowProduct/ShowProduct';
+
+import ShowProducts from '../ShowProducts/ShowProducts';
 import Summery from '../Summary/Summery';
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <About></About>
             <Summery></Summery>
-            <ShowProduct></ShowProduct>
+            <ShowProducts></ShowProducts>
             <Contact></Contact>
         </div>
     );
