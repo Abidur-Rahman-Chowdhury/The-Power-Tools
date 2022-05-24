@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import './Login.css';
 import login from '../../images/login-signup/login.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
@@ -23,6 +23,8 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, error2] =
     useSendPasswordResetEmail(auth);
+     const [user2] = useAuthState(auth)
+    const [token] = useToken(user||user2);
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
@@ -41,7 +43,7 @@ const Login = () => {
 
     e.target.reset();
   };
-  const [token] = useToken(user);
+  
   // handel reset password
   const handelPasswordReset = async () => {
     const email = emailRef.current.value;
