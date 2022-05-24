@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Blogs from './components/Blogs/Blogs';
+import AddProducts from './components/Dashboard/AddProducts';
 import AddReview from './components/Dashboard/AddReview';
 import Dashboard from './components/Dashboard/Dashboard';
 import MakeAdmin from './components/Dashboard/MakeAdmin';
@@ -43,13 +44,19 @@ function App() {
             </RequiredAuth>
             
           }>
+            <Route index element={<MyProfile></MyProfile>}></Route>
 
             <Route path='makeAdmin' element={
               <RequiredAdmin>
                 <MakeAdmin></MakeAdmin>
               </RequiredAdmin>
             }></Route>
-            <Route index element={<MyProfile></MyProfile>}></Route>
+            <Route path='addProduct' element={
+              <RequiredAdmin>
+                <AddProducts></AddProducts>
+              </RequiredAdmin>
+            }></Route>
+            
             <Route path='addReview' element={<AddReview></AddReview>}></Route>
           </Route>
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>

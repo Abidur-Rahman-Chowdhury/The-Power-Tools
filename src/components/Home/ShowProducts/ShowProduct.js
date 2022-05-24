@@ -17,7 +17,7 @@ const ShowProduct = ({ tools }) => {
               <p className='text-justify text-xl'>{ des}</p>
               <p className='text-center text-xl'><b>Minimum Quantity:</b> { minimum}</p>
               <p className='text-center text-xl'><b>Available Quantity:</b> { available}</p>
-              <p className='text-center text-xl'><b>Price:</b> ${ available}</p>
+              <p className='text-center text-xl'><b>Price:</b> ${ price}</p>
         <div className="card-actions justify-center">
           <button className="btn btn-primary" onClick={()=>navigate(`/purchase/${_id}`)}>Purchase Now</button>
         </div>

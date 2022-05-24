@@ -19,7 +19,7 @@ const MyProfile = () => {
     fetch(`${baseUrl}/getProfile/${email}`)
       .then((res) => res.json())
       .then((data) => setProfileData(data));
-  }, []);
+  }, [profileData]);
 
   const handelUpdateProfile = (e) => {
     e.preventDefault();

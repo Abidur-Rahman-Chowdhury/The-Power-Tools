@@ -3,9 +3,11 @@ import React  from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 
 const Navbar = ({ children }) => {
   const [user] = useAuthState(auth);
+  
   const [createUserWithEmailAndPassword, user2, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const navigate = useNavigate();
