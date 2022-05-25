@@ -1,7 +1,8 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useState, useEffect } from 'react';
+import { baseUrl } from '../../api/constant';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({order}) => {
     const stripe = useStripe();
     const elements = useElements();
   const [cardError, setCardError] = useState('');
@@ -10,25 +11,25 @@ const CheckoutForm = () => {
   const [transactionId, setTransactionId] = useState('');
   const [clientSecret, setClientSecret] = useState('');
 
-//   const {_id, price, patient, patientName } = appointment;
+  const {_id, price, name, email } = order;
   
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/create-payment-intents`, {
-//       method: 'POST',
-//       headers: {
-//         "content-type": "application/json",
-//         'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
-//       },
-//       body: JSON.stringify({price})
+  useEffect(() => {
+    fetch(`${baseUrl}/create-payment-intents`, {
+      method: 'POST',
+      headers: {
+        "content-type": "application/json",
+        'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+      body: JSON.stringify({price})
 
-//     })
-//     .then(res => res.json())
-//       .then(data => {
-//         if (data?.clientSecret) {
-//          setClientSecret(data.clientSecret)
-//        }
-//     })
-//   },[price])
+    })
+    .then(res => res.json())
+      .then(data => {
+        if (data?.clientSecret) {
+         setClientSecret(data.clientSecret)
+       }
+    })
+  },[price])
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -58,8 +59,8 @@ const CheckoutForm = () => {
           payment_method: {
             card: card,
             billing_details: {
-            //   name:,
-            //   email: 
+              name:name,
+              email:email, 
             },
           },
         },
@@ -78,23 +79,23 @@ const CheckoutForm = () => {
         setSuccess('Congrats! Your Payment is completed.');
         //  store payment on database
         const payment = {
-        //   appointment: _id,
-        //   transactionId:paymentIntent.id
+        //  
+          transactionId:paymentIntent.id
 
         }
-        // fetch(`http://localhost:5000/booking/${_id}`, {
-        //   method: 'PATCH',
-        //   headers: {
-        //     "content-type": "application/json",
-        //     'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
-        //   },
-        //   body: JSON.stringify(payment)
+        fetch(`${baseUrl}/payment/${_id}`, {
+          method: 'PATCH',
+          headers: {
+            "content-type": "application/json",
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+          body: JSON.stringify(payment)
 
-        // }).then(res => res.json())
-        //   .then(data => {
-        //     setProcessing(false)
-        //   console.log(data)
-        // })
+        }).then(res => res.json())
+          .then(data => {
+            setProcessing(false)
+          console.log(data)
+        })
       }
     }
     return (
