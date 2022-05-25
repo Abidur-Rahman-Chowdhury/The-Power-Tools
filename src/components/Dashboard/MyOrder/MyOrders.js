@@ -18,7 +18,7 @@ const MyOrders = () => {
   return (
     <>
           <h2 className="text-center text-3xl mt-5 mb-5 font-bold">My Orders </h2>
-          <h2 className="text-center text-2xl mt-5 mb-5 font-bold">My Totals Order: {orders.length}  </h2>
+          <h2 className="text-center text-2xl mt-5 mb-5 font-bold">My Totals Order: {orders?.length}  </h2>
           
       <div className="overflow-x-auto">
         <table className="table w-full">
@@ -34,7 +34,7 @@ const MyOrders = () => {
           </thead>
           <tbody>
                       {
-                          orders.map((order,index) => <MyOrder
+                          orders?.map((order,index) => <MyOrder
                               index= {index}
                               key={order._id}
                               order={order}
