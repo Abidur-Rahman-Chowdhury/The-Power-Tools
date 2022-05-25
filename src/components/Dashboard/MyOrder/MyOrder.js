@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MyOrder = ({ order, index, user }) => {
-  const { email, price, img } = order;
+    const { _id, email, price, img } = order;
+    const navigate = useNavigate()
   return (
     <tr>
       <th>{index + 1}</th>
@@ -18,7 +20,7 @@ const MyOrder = ({ order, index, user }) => {
         </div>
       </td>
           <td>{ price}</td>
-          <td><button class="btn btn-xs btn-success mr-2">Pay</button>
+          <td><button class="btn btn-xs btn-success mr-2" onClick={()=>navigate(`/dashboard/payment/${_id}`) }>Pay</button>
           <button class="btn btn-xs btn-error">Cancel</button></td>
           
     </tr>

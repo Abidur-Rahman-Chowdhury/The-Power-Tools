@@ -7,6 +7,7 @@ import MakeAdmin from './components/Dashboard/MakeAdmin';
 import ManageProducts from './components/Dashboard/ManageProducts';
 import MyOrders from './components/Dashboard/MyOrder/MyOrders';
 import MyProfile from './components/Dashboard/MyProfile';
+import Payment from './components/Dashboard/Payment';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
@@ -67,6 +68,7 @@ function App() {
             
             <Route path='addReview' element={<AddReview></AddReview>}></Route>
             <Route path='myOrders' element={<MyOrders></MyOrders>}></Route>
+            <Route path="payment/:id" element={<Payment></Payment>}></Route>
           </Route>
            {/*  dashboard end */}
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
