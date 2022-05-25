@@ -4,6 +4,7 @@ import AddProducts from './components/Dashboard/AddProducts';
 import AddReview from './components/Dashboard/AddReview';
 import Dashboard from './components/Dashboard/Dashboard';
 import MakeAdmin from './components/Dashboard/MakeAdmin';
+import ManageProducts from './components/Dashboard/ManageProducts';
 import MyProfile from './components/Dashboard/MyProfile';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home/Home';
@@ -54,6 +55,11 @@ function App() {
             <Route path='addProduct' element={
               <RequiredAdmin>
                 <AddProducts></AddProducts>
+              </RequiredAdmin>
+            }></Route>
+            <Route path='manageProducts' element={
+              <RequiredAdmin>
+               <ManageProducts></ManageProducts>
               </RequiredAdmin>
             }></Route>
             
