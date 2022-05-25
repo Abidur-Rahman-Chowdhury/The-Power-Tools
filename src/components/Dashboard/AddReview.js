@@ -14,7 +14,7 @@ const AddReview = () => {
       review,
       ratings
       };
-      console.log(reviews);
+     
       fetch(`${baseUrl}/reviews`, {
           method: 'POST',
           headers: {

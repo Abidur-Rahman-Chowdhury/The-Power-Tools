@@ -2,7 +2,7 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { baseUrl } from '../../api/constant';
 
-const User = ({ user, index, refetch }) => {
+const User = ({ user, index, refetch,setUserInfo }) => {
   const { email, role } = user;
   
   const makeAdmin = () => {
@@ -19,7 +19,7 @@ const User = ({ user, index, refetch }) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+       
         if (data.modifiedCount > 0) {
           toast.success(`Successfully made and admin`);
           refetch();
@@ -39,8 +39,11 @@ const User = ({ user, index, refetch }) => {
           </button>
         )}
       </td>
-      <td>
-        <button className="btn btn-xs btn-error">Remove User</button>
+        <td>
+        <label htmlFor="my-modal" onClick={()=> setUserInfo(user)} className="btn modal-button btn-xs btn-error">
+        Remove User
+      </label>
+        {/* <button className="btn "></button> */}
       </td>
       
       </tr>

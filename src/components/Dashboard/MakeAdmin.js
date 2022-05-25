@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { baseUrl } from '../../api/constant';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import DeleteUserModal from './DeleteUser/DeleteUserModal';
 
 import User from './User';
 
 
 const MakeAdmin = () => {
+  const [userInfo, setUserInfo] = useState(null);
   const {
     data: users,
     isLoading,
@@ -19,7 +21,27 @@ const MakeAdmin = () => {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     }).then((res) => res.json())
-  );
+    );
+  const deleteUser = (id) => {
+
+    fetch(`${baseUrl}/user/${id}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          toast.success('Successfully deleted the user!!');
+         
+          refetch();
+        
+ }
+        
+     })
+    
+  }
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
@@ -38,11 +60,15 @@ const MakeAdmin = () => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <User key={index} user={user} index={index} refetch={refetch}></User>
+              <User key={index} user={user} setUserInfo={setUserInfo} index={index} refetch={refetch}></User>
             ))}
           </tbody>
-              </table>
-              <ToastContainer></ToastContainer>
+        </table>
+        <DeleteUserModal
+        deleteUser={deleteUser}
+        userInfo ={userInfo}
+        ></DeleteUserModal>
+        <ToastContainer></ToastContainer>
       </div>
     </div>
   );

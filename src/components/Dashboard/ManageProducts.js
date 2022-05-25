@@ -35,7 +35,7 @@ const ManageProducts = () => {
                     }
                 }).then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                       
                         if (data.deletedCount > 0) {
                             toast.success('Tools Successfully Deleted');
                            
