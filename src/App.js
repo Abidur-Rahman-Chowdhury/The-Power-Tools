@@ -5,10 +5,10 @@ import AddReview from './components/Dashboard/AddReview';
 import Dashboard from './components/Dashboard/Dashboard';
 import MakeAdmin from './components/Dashboard/MakeAdmin';
 import ManageProducts from './components/Dashboard/ManageProducts';
+import MyOrders from './components/Dashboard/MyOrder/MyOrders';
 import MyProfile from './components/Dashboard/MyProfile';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home/Home';
-
 import Login from './components/Login/Login';
 import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 import Navbar from './components/Navbar/Navbar';
@@ -39,6 +39,8 @@ function App() {
           <Route path="/blogs" element={<Blogs></Blogs>}></Route>
           <Route path="/signup" element={<Signup></Signup>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
+
+          {/*  dashboard start */}
           <Route path="/dashboard" element={
             <RequiredAuth>
               <Dashboard></Dashboard>
@@ -64,7 +66,9 @@ function App() {
             }></Route>
             
             <Route path='addReview' element={<AddReview></AddReview>}></Route>
+            <Route path='myOrders' element={<MyOrders></MyOrders>}></Route>
           </Route>
+           {/*  dashboard end */}
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
         </Routes>
         <Footer></Footer>
