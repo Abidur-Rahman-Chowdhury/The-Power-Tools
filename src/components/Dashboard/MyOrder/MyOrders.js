@@ -42,7 +42,7 @@ const MyOrders = () => {
                               index= {index}
                               key={order._id}
                               order={order}
-                              user={user}
+                             
                           ></MyOrder>)
             }
 

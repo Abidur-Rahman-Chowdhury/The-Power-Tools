@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const MyOrder = ({ order, index, user }) => {
-    const { _id, email, price, img,name, status,transactionId } = order;
+const MyOrder = ({ order, index }) => {
+    const { _id, email, price, img,name, status,transactionId , userName } = order;
     const navigate = useNavigate()
   return (
     <tr>
       <th>{index + 1}</th>
-      <td>{user?.displayName}</td>
+      <td>{userName}</td>
       <td>{email}</td>
       <td>{name}</td>
       <td>

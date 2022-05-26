@@ -44,6 +44,7 @@ const Purchase = () => {
       const orders = {
         email: user?.email,
         name: products?.name,
+        userName: user?.displayName,
         img: products?.img,
         price: orderQuantity * products?.price,
         status: false,
