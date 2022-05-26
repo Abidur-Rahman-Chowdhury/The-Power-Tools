@@ -54,7 +54,7 @@ const ManageAllOrders = () => {
     }
   return (
     <>
-      <h2 className="text-center text-3xl mt-5 mb-5 font-bold">My Orders </h2>
+      <h2 className="text-center text-3xl mt-5 mb-5 font-bold">Manage All Orders</h2>
       <h2 className="text-center text-2xl mt-5 mb-5 font-bold">
         {' '}
         Total Orders: {allOrders?.length}{' '}
