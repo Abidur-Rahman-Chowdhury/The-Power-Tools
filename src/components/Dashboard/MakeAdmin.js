@@ -31,7 +31,7 @@ const MakeAdmin = () => {
       },
     }).then(res => res.json())
       .then(data => {
-        console.log(data);
+        
         if (data.deletedCount > 0) {
           toast.success('Successfully remove the user!!');
          

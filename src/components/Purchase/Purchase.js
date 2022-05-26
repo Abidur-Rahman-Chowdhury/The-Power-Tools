@@ -59,7 +59,7 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+         
           if (data.insertedId) {
             toast.success('Successfully place order');
             setOrdersError('')
@@ -74,7 +74,7 @@ const Purchase = () => {
             })
               .then(res => res.json())
               .then(data => {
-                console.log(data);
+                
               });
           }
         });

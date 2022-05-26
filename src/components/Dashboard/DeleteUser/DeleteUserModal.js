@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DeleteUserModal = ({ userInfo, deleteUser }) => {
-    console.log(userInfo);
+    
   return (
     <>
      
