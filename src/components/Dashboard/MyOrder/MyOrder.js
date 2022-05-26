@@ -23,7 +23,8 @@ const MyOrder = ({ order, index,setProduct }) => {
           <td>{ price}</td>
       <td className={`${(status ? 'text-success font-bold' : '')}`}>{status ? 'Paid' : 'Not Paid'}</td>
       <td>{ status ? transactionId : ''  }</td>
-      <td><button className="btn btn-xs btn-success mr-2" onClick={() => navigate(`/dashboard/payment/${_id}`)} disabled={status}>Pay</button>
+      <td>
+        <button className="btn btn-xs btn-success mr-2" onClick={() => navigate(`/dashboard/payment/${_id}`)} disabled={status}>Pay</button>
       <label
             htmlFor="my-modal"
             onClick={() => setProduct(order)}
