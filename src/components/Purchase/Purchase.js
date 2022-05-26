@@ -62,6 +62,7 @@ const Purchase = () => {
           console.log(data);
           if (data.insertedId) {
             toast.success('Successfully place order');
+            setOrdersError('')
             e.target.reset();
             fetch(`${baseUrl}/update/tools/${id}`, {
               method: 'PUT',

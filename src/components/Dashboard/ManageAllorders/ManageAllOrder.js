@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManageAllOrder = ({ order, index, handelShift }) => {
+const ManageAllOrder = ({ order, index, handelShift,setOrder, }) => {
     const { _id, name, userName, email, img, status, transactionId, price, shift } = order;
     return (
         <tr>
@@ -30,7 +30,8 @@ const ManageAllOrder = ({ order, index, handelShift }) => {
            <label
             htmlFor="my-modal"
            
-          className=" btn-xs btn-error modal-button btn "
+                    className=" btn-xs btn-error modal-button btn "
+                    onClick={()=>setOrder(order)}
           disabled={shift}
           >
             Cancel

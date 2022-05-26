@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { toast, ToastContainer } from 'react-toastify';
 import { baseUrl } from '../../../api/constant';
 import ManageAllOrder from './ManageAllOrder';
 import 'react-toastify/dist/ReactToastify.css';
+import CancelOrder from './CancelOrder';
 
 const ManageAllOrders = () => {
+    const [order,setOrder]= useState(null)
   const {
     data: allOrders,
     isLoading,
@@ -32,7 +34,24 @@ const ManageAllOrders = () => {
               refetch();
         }
       });
-  };
+    };
+    
+    const cancelOrder = (id) => {
+        fetch(`${baseUrl}/cancel/order/${id}`, {
+            method: 'DELETE',
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          }
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.deletedCount >0 ) {
+                toast.success('Successfully cancel the order');
+                refetch();
+            }
+          })
+        
+    }
   return (
     <>
       <h2 className="text-center text-3xl mt-5 mb-5 font-bold">My Orders </h2>
@@ -53,7 +72,6 @@ const ManageAllOrders = () => {
               <th>Price</th>
               <th>Status</th>
               <th>Transaction ID</th>
-
               <th>Action</th>
             </tr>
           </thead>
@@ -62,8 +80,10 @@ const ManageAllOrders = () => {
               <ManageAllOrder
                 index={index}
                 key={order._id}
-                order={order}
-                handelShift={handelShift}
+                    order={order}
+                    setOrder={setOrder}
+                    handelShift={handelShift}
+                   
               ></ManageAllOrder>
             ))}
           </tbody>
@@ -73,6 +93,11 @@ const ManageAllOrders = () => {
           cancelProduct={cancelProduct}
         ></CancelOrdersModal>
         <ToastContainer></ToastContainer> */}
+              <CancelOrder
+                  cancelOrder={cancelOrder}
+                  order={order}
+              
+              ></CancelOrder>
               <ToastContainer></ToastContainer>
       </div>
     </>
