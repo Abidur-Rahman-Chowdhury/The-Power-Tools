@@ -30,7 +30,7 @@ const MyPortfolio = () => {
             </thead>
             <tbody>
               <tr>
-                <td>International Islamic University</td>
+                <td>International Islamic University, Chittagong</td>
                 <td>Kumira Chittagong, Bangladesh.</td>
                 <td>BSc in CSE</td>
                 <td className="text-gray-500">April-2018 - present</td>
