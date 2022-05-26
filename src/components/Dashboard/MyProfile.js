@@ -7,19 +7,30 @@ import profile from '../../images/profile/profile.png';
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { useQuery } from 'react-query';
 
 
 const MyProfile = () => {
   const [user] = useAuthState(auth);
   const [loading, setLoading] = useState(false);
-  const [profileData, setProfileData] = useState({});
+  const email = user?.email;
+  
+  const { data: profileData, isLoading , refetch} = useQuery('profileData', () =>
+  fetch(`${baseUrl}/getProfile/${email}`, {
+    method: 'GET',
+    headers: {
+      authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+    },
+  }).then((res) => res.json())
+);
 
-  useEffect(() => {
-    const email = user?.email;
-    fetch(`${baseUrl}/getProfile/${email}`)
-      .then((res) => res.json())
-      .then((data) => setProfileData(data))
-  }, []);
+  
+  // useEffect(() => {
+  //   const email = user?.email;
+  //   fetch(`${baseUrl}/getProfile/${email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setProfileData(data))
+  // }, []);
 
   const handelUpdateProfile = (e) => {
     e.preventDefault();
@@ -45,8 +56,8 @@ const MyProfile = () => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success('Profile information Updated Successfully');
-
           e.target.reset();
+          refetch();
         }
       });
   };
