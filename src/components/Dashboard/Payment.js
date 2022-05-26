@@ -12,6 +12,7 @@ const stripePromise = loadStripe(
 );
 const Payment = () => {
   const { id } = useParams();
+  
   const url = `${baseUrl}/order/${id}`;
   const { data: order, isLoading } = useQuery(['orders',id], () =>
     fetch(url, {
@@ -26,22 +27,22 @@ const Payment = () => {
   }
   return (
     <div>
-      <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+      <div class="card w-50 mx-auto max-w-md bg-base-100 shadow-xl my-12">
         <div class="card-body">
           <p className="text-success font-bold">
             Hello {}
           </p>
           <h2 class="card-title">Pay for {}</h2>
           <p>
-            Your Appointment:
+            Your Order For:
             <span className="text-orange-700 ml-2">
-              {}
-            </span> at {}
+              {order?.name}
+            </span> is ready.
           </p>
-          <p>Please Pay ${}</p>
+          <p>Please Pay ${order?.price}</p>
         </div>
       </div>
-      <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
+      <div class="card flex-shrink-0 w-50 mx-auto max-w-md shadow-2xl bg-base-100">
         <div class="card-body">
           <Elements stripe={stripePromise}>
                       <CheckoutForm order={order }/>
