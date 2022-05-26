@@ -25,12 +25,7 @@ const MyProfile = () => {
 );
 
   
-  // useEffect(() => {
-  //   const email = user?.email;
-  //   fetch(`${baseUrl}/getProfile/${email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setProfileData(data))
-  // }, []);
+
 
   const handelUpdateProfile = (e) => {
     e.preventDefault();
