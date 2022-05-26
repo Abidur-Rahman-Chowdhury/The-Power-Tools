@@ -13,7 +13,7 @@ const DeleteModal = ({ tools, deleteProducts }) => {
             ✕
           </label>
           <h3 className="font-bold text-lg">
-            Are Your Sure You Want to Delete Tools?
+            Are you sure you want to delete this tools?
           </h3>
 
           <div className="text-center">

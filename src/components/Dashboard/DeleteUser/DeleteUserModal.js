@@ -11,7 +11,7 @@ const DeleteUserModal = ({ userInfo, deleteUser }) => {
               <div className="modal-box relative">
               <label htmlFor="my-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
            <h3 className="font-bold text-lg">
-           Are you Sure You want to delete the User?
+           Are you sure you want to remove the user?
           </h3>
          
           <div className="modal-action">
