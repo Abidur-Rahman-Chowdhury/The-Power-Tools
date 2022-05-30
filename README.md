@@ -5,7 +5,7 @@ This is an simple Tools Manufacturer Website Built in MERN Stack. This website h
 
 
 ## Live Website Link
-Live Demo: [The power Tools ](https://the-power-tools.web.app/).
+Live Demo: [The Power Tools ](https://the-power-tools.web.app/).
 ## Features
 
 - User Authentication system
