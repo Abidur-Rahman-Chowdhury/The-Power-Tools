@@ -11,7 +11,7 @@ const Summery = () => {
           Business Summary
         </h2>
       </div>
-    <div className='grid gap-y-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center mb-10'>
+        <div className='grid gap-y-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center mb-10'>
       <div className="card w-80  bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img

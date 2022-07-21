@@ -6,10 +6,10 @@ const ShowProduct = ({ tools }) => {
     const navigate = useNavigate();
   return (
 
-    <div  className="w-[80%] mx-auto">
-      <div className="card card-compact w-lg  bg-base-100 shadow-lg border">
+   
+      <div className="card card-compact w-full  bg-base-100 p-5 shadow-lg border">
       <figure>
-        <img className='w-[200px]'
+        <img className='w-[300px]'
           src={img}
           alt={name}
         />
@@ -25,7 +25,7 @@ const ShowProduct = ({ tools }) => {
         </div>
       </div>
     </div>
-    </div>
+  
     
   );
 };
