@@ -1,13 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+// You can also use <link> for styles
+
 
 const ShowProduct = ({ tools }) => {
     const { _id, name, img, des, minimum, available, price } = tools;
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
   return (
 
    
-      <div className="card card-compact w-full  bg-base-100 p-5 shadow-lg border">
+      <div className="card card-compact w-full  bg-base-100 p-5 shadow-lg border" >
       <figure>
         <img className='w-[300px]'
           src={img}
