@@ -20,7 +20,9 @@ import RequiredAdmin from './components/RequiredAuth/RequiredAdmin';
 import RequiredAuth from './components/RequiredAuth/RequiredAuth';
 import Signup from './components/Signup/Signup';
 
+
 function App() {
+
   return (
     <div>
       <Navbar>
