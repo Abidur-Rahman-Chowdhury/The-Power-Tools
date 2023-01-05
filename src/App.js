@@ -19,7 +19,10 @@ import Purchase from './components/Purchase/Purchase';
 import RequiredAdmin from './components/RequiredAuth/RequiredAdmin';
 import RequiredAuth from './components/RequiredAuth/RequiredAuth';
 import Signup from './components/Signup/Signup';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 
+AOS.init();
 
 function App() {
 

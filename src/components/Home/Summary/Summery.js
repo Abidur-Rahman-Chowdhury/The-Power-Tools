@@ -6,8 +6,8 @@ import project from '../../../images/business/project completed.png';
 const Summery = () => {
     return (
         <>
-        <div className="text-center mb-10">
-        <h2 className="text-3xl italic text-center font-bold border-b-2 inline-block ">
+        <div className="text-center mb-10" >
+        <h2 className="text-3xl italic text-center font-bold border-b-2 inline-block " >
           Business Summary
         </h2>
       </div>
