@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../hooks/useToken';
 
 const Social = (props) => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user] = useSignInWithGoogle(auth);
   // handel google signin
   const handelSocialLogin = () => {
     signInWithGoogle();

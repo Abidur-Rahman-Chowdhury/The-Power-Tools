@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import './Signup.css';
 import signup from '../../images/login-signup/signup.png';
 import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
-import { async } from '@firebase/util';
+
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import Social from '../Social/Social';
 import useToken from '../../hooks/useToken';

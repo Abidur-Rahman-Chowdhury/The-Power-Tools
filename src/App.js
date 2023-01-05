@@ -61,7 +61,7 @@ function App() {
                 <MakeAdmin></MakeAdmin>
               </RequiredAdmin>
             }></Route>
-            <Route path='addProduct' element={
+            <Route path='addProduct' element={ 
               <RequiredAdmin>
                 <AddProducts></AddProducts>
               </RequiredAdmin>
