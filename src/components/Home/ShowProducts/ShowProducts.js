@@ -12,10 +12,10 @@ const ShowProducts = () => {
 
     const sixTools = products.slice(0, 6);
     return (
-        <div className='w-[95%] mx-auto'>
+        <div className='w-[80%] mx-auto'>
             <h1 className='text-center text-4xl font-bold mb-20'>Our Products</h1>
 
-            <div className='grid mb-10 gap-y-10 gap-x-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid  gap-y-10 gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     sixTools.map(tools => <ShowProduct
                     

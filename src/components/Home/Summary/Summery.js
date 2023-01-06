@@ -11,13 +11,13 @@ const Summery = () => {
           Business Summary
         </h2>
       </div>
-        <div className='grid gap-y-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center mb-10'>
+        <div className='grid gap-y-5 w-[70%] lg:gap-x-80  xl:gap-x-40 md:gap-x-40 mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center mb-10'>
       <div className="card w-80  bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img
             src={deals}
             alt="deals"
-            className="rounded-xl"
+            className="rounded-xl "
           />
         </figure>
         <div className="card-body items-center text-center">
@@ -31,7 +31,7 @@ const Summery = () => {
           <img
             src={revenue}
             alt="revenue"
-            className="rounded-xl"
+            className="rounded-xl max-h-[187px]"
           />
         </figure>
         <div className="card-body items-center text-center">
@@ -45,7 +45,7 @@ const Summery = () => {
           <img
             src={project}
             alt="project"
-            className="rounded-xl"
+            className="rounded-xl max-h-[187px]"
           />
         </figure>
         <div className="card-body items-center text-center">
